@@ -11,7 +11,6 @@ public class ManufacturerDaoImpl implements ManufacturerDao {
     @Override
     public Manufacturer create(Manufacturer manufacturer) {
         Storage.addManufacture(manufacturer);
-        Storage.getManufacturers().add(manufacturer);
         return manufacturer;
     }
 
@@ -32,6 +31,7 @@ public class ManufacturerDaoImpl implements ManufacturerDao {
         for (int i = 0; i < Storage.getManufacturers().size(); i++) {
             if (Storage.getManufacturers().get(i).getId().equals(manufacturer.getId())) {
                 Storage.getManufacturers().set(i, manufacturer);
+                break;
             }
         }
         return manufacturer;
