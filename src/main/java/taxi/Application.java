@@ -1,9 +1,11 @@
-import lib.Injector;
-import model.Manufacturer;
-import service.ManufacturerService;
+package taxi;
+
+import taxi.lib.Injector;
+import taxi.model.Manufacturer;
+import taxi.service.ManufacturerService;
 
 public class Application {
-    private static final Injector injector = Injector.getInstance("jv-data-base-practice");
+    private static final Injector injector = Injector.getInstance("taxi");
 
     public static void main(String[] args) {
         ManufacturerService manufacturerService = (ManufacturerService)
@@ -23,7 +25,6 @@ public class Application {
         System.out.println(manufacturerService.getAll());
 
         System.out.println(manufacturerService.get(2L));
-        System.out.println(manufacturerService.get(10L));
 
         Manufacturer updateManufacturer3 = manufacturerService.get(3L);
         System.out.println(updateManufacturer3);

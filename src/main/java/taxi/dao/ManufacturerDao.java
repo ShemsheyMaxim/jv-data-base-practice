@@ -1,8 +1,8 @@
-package dao;
+package taxi.dao;
 
 import java.util.List;
 import java.util.Optional;
-import model.Manufacturer;
+import taxi.model.Manufacturer;
 
 public interface ManufacturerDao {
     Manufacturer create(Manufacturer manufacturer);

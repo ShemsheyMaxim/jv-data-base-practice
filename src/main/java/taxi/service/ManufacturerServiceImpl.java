@@ -1,10 +1,10 @@
-package service;
+package taxi.service;
 
-import dao.ManufacturerDao;
 import java.util.List;
-import lib.Inject;
-import lib.Service;
-import model.Manufacturer;
+import taxi.dao.ManufacturerDao;
+import taxi.lib.Inject;
+import taxi.lib.Service;
+import taxi.model.Manufacturer;
 
 @Service
 public class ManufacturerServiceImpl implements ManufacturerService {

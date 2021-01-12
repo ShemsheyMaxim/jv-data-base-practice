@@ -1,4 +1,4 @@
-package lib;
+package taxi.lib;
 
 import java.lang.annotation.Retention;
 import java.lang.annotation.RetentionPolicy;

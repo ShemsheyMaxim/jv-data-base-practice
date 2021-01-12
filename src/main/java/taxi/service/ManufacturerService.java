@@ -1,7 +1,7 @@
-package service;
+package taxi.service;
 
 import java.util.List;
-import model.Manufacturer;
+import taxi.model.Manufacturer;
 
 public interface ManufacturerService {
     Manufacturer create(Manufacturer manufacturer);

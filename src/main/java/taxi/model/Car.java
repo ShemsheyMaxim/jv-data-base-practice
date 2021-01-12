@@ -1,4 +1,4 @@
-package model;
+package taxi.model;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -72,7 +72,7 @@ public class Car {
     public String toString() {
         return "Car{"
                 + "id=" + id
-                + ", model='" + model + '\''
+                + ", taxi.model='" + model + '\''
                 + ", manufacturer=" + manufacturer
                 + ", drivers=" + drivers
                 + '}';

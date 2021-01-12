@@ -1,8 +1,8 @@
-package storage;
+package taxi.storage;
 
 import java.util.ArrayList;
 import java.util.List;
-import model.Manufacturer;
+import taxi.model.Manufacturer;
 
 public class Storage {
     private static Long manufacturerId = 0L;

@@ -1,15 +1,16 @@
-package dao;
+package taxi.dao;
 
 import java.util.List;
 import java.util.Optional;
-import lib.Dao;
-import model.Manufacturer;
-import storage.Storage;
+import taxi.lib.Dao;
+import taxi.model.Manufacturer;
+import taxi.storage.Storage;
 
 @Dao
 public class ManufacturerDaoImpl implements ManufacturerDao {
     @Override
     public Manufacturer create(Manufacturer manufacturer) {
+        Storage.addManufacture(manufacturer);
         Storage.getManufacturers().add(manufacturer);
         return manufacturer;
     }
