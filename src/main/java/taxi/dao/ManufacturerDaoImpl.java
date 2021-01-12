@@ -17,12 +17,9 @@ public class ManufacturerDaoImpl implements ManufacturerDao {
 
     @Override
     public Optional<Manufacturer> get(Long id) {
-        for (Manufacturer manufacturer : Storage.getManufacturers()) {
-            if (manufacturer.getId().equals(id)) {
-                return Optional.of(manufacturer);
-            }
-        }
-        return Optional.empty();
+        return Storage.getManufacturers().stream()
+                .filter(manufacturer -> manufacturer.getId().equals(id))
+                .findFirst();
     }
 
     @Override
@@ -42,12 +39,6 @@ public class ManufacturerDaoImpl implements ManufacturerDao {
 
     @Override
     public boolean delete(Long id) {
-        for (Manufacturer manufacturer : Storage.getManufacturers()) {
-            if (manufacturer.getId().equals(id)) {
-                Storage.getManufacturers().remove(manufacturer);
-                return true;
-            }
-        }
-        return false;
+        return Storage.getManufacturers().removeIf(manufacturer -> manufacturer.getId().equals(id));
     }
 }
