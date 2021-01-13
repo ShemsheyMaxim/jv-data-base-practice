@@ -44,8 +44,8 @@ public class Car {
         return drivers;
     }
 
-    public void setDrivers(List<Driver> drivers) {
-        this.drivers = drivers;
+    public void setDrivers(Driver driver) {
+        drivers.add(driver);
     }
 
     @Override
