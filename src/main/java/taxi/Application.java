@@ -42,8 +42,8 @@ public class Application {
         System.out.println(manufacturerService.delete(1L));
         System.out.println(manufacturerService.delete(12L));
         System.out.println(manufacturerService.getAll());
-        System.out.println("-----------------------------------------------------" +
-                "----------------------------------------------------------------");
+        System.out.println("-----------------------------------------------------"
+                + "----------------------------------------------------------------");
 
         DriverService driverService = (DriverService) injector.getInstance(DriverService.class);
         Driver driver1 = new Driver("Maxim", "000-000-000");
@@ -66,8 +66,8 @@ public class Application {
         updateDriver.setName("John");
         driverService.update(updateDriver);
         System.out.println(driverService.getAll());
-        System.out.println("-----------------------------------------------------" +
-                "----------------------------------------------------------------");
+        System.out.println("-----------------------------------------------------"
+                + "----------------------------------------------------------------");
 
         CarService carService = (CarService) injector.getInstance(CarService.class);
         Car car1 = new Car("Mustang", manufacturer3);
