@@ -18,9 +18,10 @@ public class CarDaoImpl implements CarDao {
 
     @Override
     public Optional<Car> get(Long id) {
-        return Storage.getCars().stream()
+        return Optional.ofNullable(Storage.getCars().stream()
                 .filter(car -> car.getId().equals(id))
-                .findFirst();
+                .findFirst()
+                .orElseThrow(() -> new RuntimeException("Car with id " + id + " not find")));
     }
 
     @Override
