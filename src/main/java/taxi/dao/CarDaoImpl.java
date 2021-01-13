@@ -1,9 +1,11 @@
 package taxi.dao;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 import taxi.lib.Dao;
 import taxi.model.Car;
+import taxi.model.Driver;
 import taxi.storage.Storage;
 
 @Dao
@@ -16,9 +18,10 @@ public class CarDaoImpl implements CarDao {
 
     @Override
     public Optional<Car> get(Long id) {
-        return Storage.getCars().stream()
+        return Optional.ofNullable(Storage.getCars().stream()
                 .filter(car -> car.getId().equals(id))
-                .findFirst();
+                .findFirst()
+                .orElseThrow(() -> new RuntimeException("Car with id " + id + " not find")));
     }
 
     @Override
@@ -40,5 +43,19 @@ public class CarDaoImpl implements CarDao {
     @Override
     public boolean delete(Long id) {
         return Storage.getCars().removeIf(car -> car.getId().equals(id));
+    }
+
+    @Override
+    public List<Car> getAllByDriver(Long driverId) {
+        List<Car> result = new ArrayList<>();
+        for (Car car : Storage.getCars()) {
+            for (Driver driver : car.getDrivers()) {
+                if (driver.getId().equals(driverId)) {
+                    result.add(car);
+                    break;
+                }
+            }
+        }
+        return result;
     }
 }

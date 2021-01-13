@@ -1,6 +1,5 @@
 package taxi.service;
 
-import java.util.ArrayList;
 import java.util.List;
 import taxi.dao.CarDao;
 import taxi.lib.Inject;
@@ -21,7 +20,7 @@ public class CarServiceImpl implements CarService {
     @Override
     public Car get(Long id) {
         return carDao.get(id).orElseThrow(() ->
-                new RuntimeException("Id don't found " + id));
+                new RuntimeException("Car with id " + id + " not found"));
     }
 
     @Override
@@ -41,28 +40,18 @@ public class CarServiceImpl implements CarService {
 
     @Override
     public void addDriverToCar(Driver driver, Car car) {
-        if (!get(car.getId()).getDrivers().contains(driver)) {
-            get(car.getId()).getDrivers().add(driver);
-        }
+        car.getDrivers().add(driver);
+        carDao.update(car);
     }
 
     @Override
     public void removeDriverFromCar(Driver driver, Car car) {
-        get(car.getId()).getDrivers().removeIf(currentDriver ->
-                currentDriver.getId().equals(driver.getId()));
+        car.getDrivers().remove(driver);
+        carDao.update(car);
     }
 
     @Override
     public List<Car> getAllByDriver(Long driverId) {
-        List<Car> result = new ArrayList<>();
-        for (Car car : carDao.getAll()) {
-            for (Driver driver : car.getDrivers()) {
-                if (driver.getId().equals(driverId)) {
-                    result.add(car);
-                    break;
-                }
-            }
-        }
-        return result;
+        return carDao.getAllByDriver(driverId);
     }
 }
