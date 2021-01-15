@@ -51,8 +51,7 @@ public class ManufacturerDaoJdbcImpl implements ManufacturerDao {
             }
             return Optional.ofNullable(manufacturer);
         } catch (SQLException e) {
-            throw new DataProcessingException("Can't get manufacturer " + manufacturer
-                    + " for id " + id, e);
+            throw new DataProcessingException("Can't get manufacturer for id " + id, e);
         }
     }
 
