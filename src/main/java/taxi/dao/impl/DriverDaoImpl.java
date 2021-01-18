@@ -3,11 +3,9 @@ package taxi.dao.impl;
 import java.util.List;
 import java.util.Optional;
 import taxi.dao.DriverDao;
-import taxi.lib.Dao;
 import taxi.model.Driver;
 import taxi.storage.Storage;
 
-@Dao
 public class DriverDaoImpl implements DriverDao {
     @Override
     public Driver create(Driver driver) {

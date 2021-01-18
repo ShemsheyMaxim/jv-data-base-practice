@@ -63,7 +63,9 @@ public class Application {
         System.out.println(driverService.getAll());
 
         Driver updateDriver = driverService.get(5L);
+        System.out.println(updateDriver);
         updateDriver.setName("John");
+        System.out.println(updateDriver);
         driverService.update(updateDriver);
         System.out.println(driverService.getAll());
         System.out.println("-----------------------------------------------------"

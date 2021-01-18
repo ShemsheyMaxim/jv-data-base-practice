@@ -41,11 +41,11 @@ public class ManufacturerDaoJdbcImpl implements ManufacturerDao {
     public Optional<Manufacturer> get(Long id) {
         String query = "SELECT * FROM manufacturer "
                 + "WHERE manufacturer_id = ? AND is_deleted = false";
-        Manufacturer manufacturer = null;
         try (Connection connection = ConnectionUtil.getConnection();
                 PreparedStatement preparedStatement = connection.prepareStatement(query)) {
             preparedStatement.setLong(1, id);
             ResultSet resultSet = preparedStatement.executeQuery();
+            Manufacturer manufacturer = null;
             if (resultSet.next()) {
                 manufacturer = getManufacturer(resultSet);
             }
@@ -83,7 +83,7 @@ public class ManufacturerDaoJdbcImpl implements ManufacturerDao {
             preparedStatement.executeUpdate();
             return manufacturer;
         } catch (SQLException e) {
-            throw new DataProcessingException("Manufacturer " + manufacturer
+            throw new DataProcessingException("Manufacturer for id " + manufacturer.getId()
                     + " can't be update", e);
         }
     }
