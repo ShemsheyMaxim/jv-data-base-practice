@@ -18,8 +18,8 @@ import taxi.util.ConnectionUtil;
 public class DriverDaoJdbcImpl implements DriverDao {
     @Override
     public Driver create(Driver driver) {
-        String query = "INSERT INTO drivers (driver_name, licence_number, is_deleted) "
-                + "VALUES (?,?,false)";
+        String query = "INSERT INTO drivers (driver_name, licence_number) "
+                + "VALUES (?,?)";
         try (Connection connection = ConnectionUtil.getConnection();
                  PreparedStatement prepareStatement = connection.prepareStatement(query,
                          Statement.RETURN_GENERATED_KEYS)) {
@@ -38,7 +38,7 @@ public class DriverDaoJdbcImpl implements DriverDao {
 
     @Override
     public Optional<Driver> get(Long id) {
-        String query = "SELECT * FROM drivers WHERE driver_id = ? and is_deleted = false";
+        String query = "SELECT * FROM drivers WHERE driver_id = ? AND is_deleted = false";
         try (Connection connection = ConnectionUtil.getConnection();
                  PreparedStatement preparedStatement = connection.prepareStatement(query)) {
             preparedStatement.setLong(1, id);

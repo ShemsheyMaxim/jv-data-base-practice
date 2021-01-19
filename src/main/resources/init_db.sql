@@ -45,3 +45,9 @@ CREATE TABLE `taxi`.`cars_drivers` (
                                                REFERENCES `taxi`.`drivers` (`driver_id`)
                                                ON DELETE NO ACTION
                                                ON UPDATE NO ACTION);
+ALTER TABLE `taxi`.`cars`
+    CHANGE COLUMN `is_deleted` `is_deleted` BIT(1) NOT NULL DEFAULT false ;
+ALTER TABLE `taxi`.`drivers`
+    CHANGE COLUMN `is_deleted` `is_deleted` BIT(1) NOT NULL DEFAULT false ;
+ALTER TABLE `taxi`.`manufacturers`
+    CHANGE COLUMN `is_deleted` `is_deleted` BIT(1) NOT NULL DEFAULT false ;

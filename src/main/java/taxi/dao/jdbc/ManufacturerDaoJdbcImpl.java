@@ -18,8 +18,8 @@ import taxi.util.ConnectionUtil;
 public class ManufacturerDaoJdbcImpl implements ManufacturerDao {
     @Override
     public Manufacturer create(Manufacturer manufacturer) {
-        String query = "INSERT INTO manufacturers (manufacturer_name, country, is_deleted) "
-                + "VALUES (?,?,false)";
+        String query = "INSERT INTO manufacturers (manufacturer_name, country) "
+                + "VALUES (?,?)";
         try (Connection connection = ConnectionUtil.getConnection();
                 PreparedStatement preparedStatement = connection.prepareStatement(query,
                         Statement.RETURN_GENERATED_KEYS)) {

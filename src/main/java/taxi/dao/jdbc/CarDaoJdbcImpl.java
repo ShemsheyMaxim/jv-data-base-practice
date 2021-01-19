@@ -20,8 +20,8 @@ import taxi.util.ConnectionUtil;
 public class CarDaoJdbcImpl implements CarDao {
     @Override
     public Car create(Car car) {
-        String query = "INSERT INTO cars (model, manufacturer_id, is_deleted) "
-                + "VALUE (?,?,false)";
+        String query = "INSERT INTO cars (model, manufacturer_id) "
+                + "VALUE (?,?)";
         try (Connection connection = ConnectionUtil.getConnection();
                  PreparedStatement preparedStatement = connection.prepareStatement(query,
                          Statement.RETURN_GENERATED_KEYS)) {
