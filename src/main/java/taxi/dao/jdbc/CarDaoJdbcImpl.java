@@ -103,8 +103,8 @@ public class CarDaoJdbcImpl implements CarDao {
         } catch (SQLException e) {
             throw new DataProcessingException("Car for id " + car.getId() + " can't be update.", e);
         }
-        deleteCar(car.getId());
-        insertCar(car);
+        deleteCarDrivers(car.getId());
+        insertCarDrivers(car);
         return car;
     }
 
@@ -192,7 +192,7 @@ public class CarDaoJdbcImpl implements CarDao {
         return car;
     }
 
-    private void deleteCar(Long carId) {
+    private void deleteCarDrivers(Long carId) {
         String deleteCarQuery = "DELETE FROM cars_drivers WHERE car_id = ?";
         try (Connection connection = ConnectionUtil.getConnection();
                  PreparedStatement deletePreparedStatement =
@@ -204,7 +204,7 @@ public class CarDaoJdbcImpl implements CarDao {
         }
     }
 
-    private void insertCar(Car car) {
+    private void insertCarDrivers(Car car) {
         String insertCarQuery = "INSERT INTO cars_drivers (car_id, driver_id) "
                 + "VALUE (?,?)";
         try (Connection connection = ConnectionUtil.getConnection();
