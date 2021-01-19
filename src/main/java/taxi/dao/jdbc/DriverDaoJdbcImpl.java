@@ -82,7 +82,7 @@ public class DriverDaoJdbcImpl implements DriverDao {
             return driver;
         } catch (SQLException e) {
             throw new DataProcessingException("Driver for id " + driver.getId()
-                    + "can't be update", e);
+                    + " can't be update", e);
         }
     }
 
@@ -103,7 +103,7 @@ public class DriverDaoJdbcImpl implements DriverDao {
     private Driver getDriver(ResultSet resultSet) throws SQLException {
         Long driverId = resultSet.getObject("driver_id", Long.class);
         String name = resultSet.getObject("driver_name", String.class);
-        String licenceNumber = resultSet.getObject("licenceNumber", String.class);
+        String licenceNumber = resultSet.getObject("licence_number", String.class);
         Driver driver = new Driver(name, licenceNumber);
         driver.setId(driverId);
         return driver;

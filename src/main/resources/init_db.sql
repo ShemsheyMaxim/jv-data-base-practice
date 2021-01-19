@@ -7,6 +7,8 @@ CREATE TABLE `taxi`.`manufacturer`
                                 `is_deleted` bit(1) NOT NULL,
                                 PRIMARY KEY (`manufacturer_id`)
 ) ENGINE=InnoDB;
+ALTER TABLE `taxi`.`manufacturer`
+    RENAME TO  `taxi`.`manufacturers` ;
 CREATE TABLE `taxi`.`drivers` (
                                   `driver_id` BIGINT(11) NOT NULL,
                                   `driver_name` VARCHAR(225) NOT NULL,
@@ -16,3 +18,30 @@ CREATE TABLE `taxi`.`drivers` (
 ) ENGINE = InnoDB;
 ALTER TABLE `taxi`.`drivers`
     CHANGE COLUMN `driver_id` `driver_id` BIGINT NOT NULL AUTO_INCREMENT ;
+CREATE TABLE `taxi`.`cars` (
+                               `cars_id` BIGINT(11) NOT NULL AUTO_INCREMENT,
+                               `model` VARCHAR(225) NOT NULL,
+                               `manufacturer_id` BIGINT(11) NOT NULL,
+                               `is_deleted` BIT NOT NULL,
+                               PRIMARY KEY (`cars_id`),
+                               INDEX `cars_manufacturers_id_idx` (`manufacturer_id` ASC) VISIBLE,
+                               CONSTRAINT `cars_manufacturers_id`
+                                   FOREIGN KEY (`manufacturer_id`)
+                                       REFERENCES `taxi`.`manufacturer` (`manufacturer_id`)
+                                       ON DELETE NO ACTION
+                                       ON UPDATE NO ACTION);
+CREATE TABLE `taxi`.`cars_drivers` (
+                                       `car_id` BIGINT(11) NOT NULL,
+                                       `driver_id` BIGINT(11) NOT NULL,
+                                       INDEX `car_id_idx` (`car_id` ASC) VISIBLE,
+                                       INDEX `driver_id_idx` (`driver_id` ASC) VISIBLE,
+                                       CONSTRAINT `car_id`
+                                           FOREIGN KEY (`car_id`)
+                                               REFERENCES `taxi`.`cars` (`cars_id`)
+                                               ON DELETE NO ACTION
+                                               ON UPDATE NO ACTION,
+                                       CONSTRAINT `driver_id`
+                                           FOREIGN KEY (`driver_id`)
+                                               REFERENCES `taxi`.`drivers` (`driver_id`)
+                                               ON DELETE NO ACTION
+                                               ON UPDATE NO ACTION);

@@ -48,6 +48,10 @@ public class Car {
         drivers.add(driver);
     }
 
+    public void setDrivers(List<Driver> driver) {
+        drivers.addAll(driver);
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) {

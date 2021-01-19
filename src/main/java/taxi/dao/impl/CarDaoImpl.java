@@ -4,12 +4,10 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 import taxi.dao.CarDao;
-import taxi.lib.Dao;
 import taxi.model.Car;
 import taxi.model.Driver;
 import taxi.storage.Storage;
 
-@Dao
 public class CarDaoImpl implements CarDao {
     @Override
     public Car create(Car car) {

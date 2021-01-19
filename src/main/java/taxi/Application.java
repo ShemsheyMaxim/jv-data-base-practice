@@ -38,9 +38,7 @@ public class Application {
         System.out.println(manufacturerService.getAll());
 
         manufacturerService.delete(1L);
-        manufacturerService.delete(12L);
         System.out.println(manufacturerService.delete(1L));
-        System.out.println(manufacturerService.delete(12L));
         System.out.println(manufacturerService.getAll());
         System.out.println("-----------------------------------------------------"
                 + "----------------------------------------------------------------");
@@ -89,12 +87,12 @@ public class Application {
         carService.addDriverToCar(driver5, car1);
         System.out.println(carService.getAll());
 
-        System.out.println(carService.getAllByDriver(1L));
+        System.out.println(carService.getAllByDriver(driver5.getId()));
 
         carService.removeDriverFromCar(driver5, car1);
         System.out.println(carService.getAll());
 
-        Car updateCar = carService.get(1L);
+        Car updateCar = carService.get(3L);
         updateCar.setModel("GT");
         carService.update(updateCar);
         System.out.println(carService.getAll());
