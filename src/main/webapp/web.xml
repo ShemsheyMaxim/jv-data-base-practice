@@ -21,7 +21,7 @@
 
     <servlet-mapping>
         <servlet-name>registrationDriver</servlet-name>
-        <url-pattern>/driver/registration</url-pattern>
+        <url-pattern>/driver/add</url-pattern>
     </servlet-mapping>
 
     <servlet>
@@ -31,7 +31,7 @@
 
     <servlet-mapping>
         <servlet-name>registrationManufacturer</servlet-name>
-        <url-pattern>/manufacturer/registration</url-pattern>
+        <url-pattern>/manufacturer/add</url-pattern>
     </servlet-mapping>
 
     <servlet>
@@ -41,7 +41,7 @@
 
     <servlet-mapping>
         <servlet-name>registrationCar</servlet-name>
-        <url-pattern>/car/registration</url-pattern>
+        <url-pattern>/car/add</url-pattern>
     </servlet-mapping>
 
     <servlet>
@@ -61,6 +61,6 @@
 
     <servlet-mapping>
         <servlet-name>displayAllDrivers</servlet-name>
-        <url-pattern>/driver/display/all</url-pattern>
+        <url-pattern>/drivers/</url-pattern>
     </servlet-mapping>
 </web-app>

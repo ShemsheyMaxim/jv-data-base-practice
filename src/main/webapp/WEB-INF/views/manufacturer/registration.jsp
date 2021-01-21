@@ -5,7 +5,7 @@
 </head>
 <body>
     <h1>Please enter more details about manufacturer</h1>
-    <form method="post" action="${pageContext.request.contextPath}/manufacturer/registration">
+    <form method="post" action="${pageContext.request.contextPath}/manufacturer/add">
         Manufacturer name <input type="text" name="manufacturer_name" required>
         Manufacturer country <input type="text" name="country" required>
         <button type="submit">Register</button>
