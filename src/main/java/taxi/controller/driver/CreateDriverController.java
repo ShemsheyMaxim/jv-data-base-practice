@@ -1,4 +1,4 @@
-package taxi.controller.create;
+package taxi.controller.driver;
 
 import java.io.IOException;
 import javax.servlet.ServletException;
@@ -15,7 +15,7 @@ public class CreateDriverController extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp)
             throws ServletException, IOException {
-        req.getRequestDispatcher("/WEB-INF/views/drivers/registration.jsp").forward(req, resp);
+        req.getRequestDispatcher("/WEB-INF/views/driver/registration.jsp").forward(req, resp);
     }
 
     @Override
@@ -30,7 +30,7 @@ public class CreateDriverController extends HttpServlet {
             resp.sendRedirect(req.getContextPath() + "/");
         } else {
             req.setAttribute("message", "Your name and licence number can't be empty.");
-            req.getRequestDispatcher("/WEB-INF/views/drivers/registration.jsp").forward(req, resp);
+            req.getRequestDispatcher("/WEB-INF/views/driver/registration.jsp").forward(req, resp);
         }
     }
 }

@@ -1,4 +1,4 @@
-package taxi.controller.create;
+package taxi.controller.car;
 
 import java.io.IOException;
 import javax.servlet.ServletException;
@@ -17,7 +17,7 @@ public class CreateCarController extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp)
             throws ServletException, IOException {
-        req.getRequestDispatcher("/WEB-INF/views/cars/registration.jsp").forward(req, resp);
+        req.getRequestDispatcher("/WEB-INF/views/car/registration.jsp").forward(req, resp);
     }
 
     @Override
@@ -35,7 +35,7 @@ public class CreateCarController extends HttpServlet {
         } else {
             req.setAttribute("message", "Car model, manufacturer name "
                     + "and manufacturer country can't be empty.");
-            req.getRequestDispatcher("/WEB-INF/views/cars/registration.jsp").forward(req, resp);
+            req.getRequestDispatcher("/WEB-INF/views/car/registration.jsp").forward(req, resp);
         }
     }
 }

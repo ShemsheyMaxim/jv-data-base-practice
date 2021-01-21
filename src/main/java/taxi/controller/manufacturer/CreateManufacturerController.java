@@ -1,4 +1,4 @@
-package taxi.controller.create;
+package taxi.controller.manufacturer;
 
 import java.io.IOException;
 import javax.servlet.ServletException;
@@ -15,7 +15,7 @@ public class CreateManufacturerController extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp)
             throws ServletException, IOException {
-        req.getRequestDispatcher("/WEB-INF/views/manufacturers/registration.jsp").forward(req, resp);
+        req.getRequestDispatcher("/WEB-INF/views/manufacturer/registration.jsp").forward(req, resp);
     }
 
     @Override
@@ -31,7 +31,7 @@ public class CreateManufacturerController extends HttpServlet {
             resp.sendRedirect(req.getContextPath() + "/");
         } else {
             req.setAttribute("message", "Manufacturer name and country can't be empty.");
-            req.getRequestDispatcher("/WEB-INF/views/manufacturers/registration.jsp").forward(req, resp);
+            req.getRequestDispatcher("/WEB-INF/views/manufacturer/registration.jsp").forward(req, resp);
         }
     }
 }

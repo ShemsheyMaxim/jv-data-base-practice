@@ -1,4 +1,4 @@
-package taxi.controller.update;
+package taxi.controller.car;
 
 import java.io.IOException;
 import javax.servlet.ServletException;
@@ -16,7 +16,7 @@ public class AddDriverForCarController extends HttpServlet {
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        req.getRequestDispatcher("/WEB-INF/views/cars/addDriverForCar.jsp").forward(req, resp);
+        req.getRequestDispatcher("/WEB-INF/views/car/addDriverForCar.jsp").forward(req, resp);
     }
 
     @Override
@@ -32,7 +32,7 @@ public class AddDriverForCarController extends HttpServlet {
             resp.sendRedirect(req.getContextPath() + "/");
         } else {
             req.setAttribute("message", "Car id and driver id can't be empty.");
-            req.getRequestDispatcher("//WEB-INF/views/cars/addDriverForCar.jsp").forward(req, resp);
+            req.getRequestDispatcher("//WEB-INF/views/car/addDriverForCar.jsp").forward(req, resp);
         }
     }
 }

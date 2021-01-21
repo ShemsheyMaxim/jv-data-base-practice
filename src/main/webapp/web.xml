@@ -16,41 +16,41 @@
 
     <servlet>
         <servlet-name>registrationDriver</servlet-name>
-        <servlet-class>taxi.controller.create.CreateDriverController</servlet-class>
+        <servlet-class>taxi.controller.driver.CreateDriverController</servlet-class>
     </servlet>
 
     <servlet-mapping>
         <servlet-name>registrationDriver</servlet-name>
-        <url-pattern>/drivers/registration</url-pattern>
+        <url-pattern>/driver/registration</url-pattern>
     </servlet-mapping>
 
     <servlet>
         <servlet-name>registrationManufacturer</servlet-name>
-        <servlet-class>taxi.controller.create.CreateManufacturerController</servlet-class>
+        <servlet-class>taxi.controller.manufacturer.CreateManufacturerController</servlet-class>
     </servlet>
 
     <servlet-mapping>
         <servlet-name>registrationManufacturer</servlet-name>
-        <url-pattern>/manufacturers/registration</url-pattern>
+        <url-pattern>/manufacturer/registration</url-pattern>
     </servlet-mapping>
 
     <servlet>
         <servlet-name>registrationCar</servlet-name>
-        <servlet-class>taxi.controller.create.CreateCarController</servlet-class>
+        <servlet-class>taxi.controller.car.CreateCarController</servlet-class>
     </servlet>
 
     <servlet-mapping>
         <servlet-name>registrationCar</servlet-name>
-        <url-pattern>/cars/registration</url-pattern>
+        <url-pattern>/car/registration</url-pattern>
     </servlet-mapping>
 
     <servlet>
         <servlet-name>addDriverForCar</servlet-name>
-        <servlet-class>taxi.controller.update.AddDriverForCarController</servlet-class>
+        <servlet-class>taxi.controller.car.AddDriverForCarController</servlet-class>
     </servlet>
 
     <servlet-mapping>
         <servlet-name>addDriverForCar</servlet-name>
-        <url-pattern>/cars/add-driver</url-pattern>
+        <url-pattern>/car/driver/add</url-pattern>
     </servlet-mapping>
 </web-app>
