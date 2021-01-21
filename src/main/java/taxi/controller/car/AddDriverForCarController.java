@@ -13,6 +13,10 @@ import taxi.service.DriverService;
 
 public class AddDriverForCarController extends HttpServlet {
     private static final Injector injector = Injector.getInstance("taxi");
+    private final DriverService driverService =
+            (DriverService) injector.getInstance(DriverService.class);
+    private final CarService carService =
+            (CarService) injector.getInstance(CarService.class);
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp)
@@ -26,9 +30,7 @@ public class AddDriverForCarController extends HttpServlet {
         String carId = req.getParameter("car_id");
         String driverId = req.getParameter("driver_id");
 
-        DriverService driverService = (DriverService) injector.getInstance(DriverService.class);
         Driver getDriver = driverService.get(Long.valueOf(driverId));
-        CarService carService = (CarService) injector.getInstance(CarService.class);
         Car getCar = carService.get(Long.valueOf(carId));
         carService.addDriverToCar(getDriver, getCar);
         resp.sendRedirect(req.getContextPath() + "/");

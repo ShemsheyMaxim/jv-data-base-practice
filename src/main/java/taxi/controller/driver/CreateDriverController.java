@@ -11,6 +11,8 @@ import taxi.service.DriverService;
 
 public class CreateDriverController extends HttpServlet {
     private static final Injector injector = Injector.getInstance("taxi");
+    private final DriverService driverService =
+            (DriverService) injector.getInstance(DriverService.class);
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp)
@@ -25,7 +27,6 @@ public class CreateDriverController extends HttpServlet {
         String licenceNumber = req.getParameter("licence_number");
 
         Driver newDriver = new Driver(name, licenceNumber);
-        DriverService driverService = (DriverService) injector.getInstance(DriverService.class);
         driverService.create(newDriver);
         resp.sendRedirect(req.getContextPath() + "/");
     }

@@ -12,13 +12,13 @@ import taxi.service.DriverService;
 
 public class DisplayAllDriversController extends HttpServlet {
     private static final Injector injector = Injector.getInstance("taxi");
+    private final DriverService driverService =
+            (DriverService) injector.getInstance(DriverService.class);
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp)
             throws ServletException, IOException {
-        DriverService driverService = (DriverService) injector.getInstance(DriverService.class);
         List<Driver> allDrivers = driverService.getAll();
-
         req.setAttribute("drivers",allDrivers);
         req.getRequestDispatcher("/WEB-INF/views/driver/displayAll.jsp").forward(req,resp);
     }
