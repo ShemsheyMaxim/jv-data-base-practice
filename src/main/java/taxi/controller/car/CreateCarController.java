@@ -26,7 +26,8 @@ public class CreateCarController extends HttpServlet {
         String model = req.getParameter("model");
         String manufacturerId = req.getParameter("manufacturer_id");
 
-        ManufacturerService manufacturerService = (ManufacturerService) injector.getInstance(ManufacturerService.class);
+        ManufacturerService manufacturerService = (ManufacturerService)
+                injector.getInstance(ManufacturerService.class);
         Manufacturer newManufacturer = manufacturerService.get(Long.valueOf(manufacturerId));
         Car newCar = new Car(model, newManufacturer);
         CarService carService = (CarService) injector.getInstance(CarService.class);
