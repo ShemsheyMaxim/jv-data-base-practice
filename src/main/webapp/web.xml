@@ -53,4 +53,14 @@
         <servlet-name>addDriverForCar</servlet-name>
         <url-pattern>/car/driver/add</url-pattern>
     </servlet-mapping>
+
+    <servlet>
+        <servlet-name>displayAllDrivers</servlet-name>
+        <servlet-class>taxi.controller.driver.DisplayAllDriversController</servlet-class>
+    </servlet>
+
+    <servlet-mapping>
+        <servlet-name>displayAllDrivers</servlet-name>
+        <url-pattern>/driver/display/all</url-pattern>
+    </servlet-mapping>
 </web-app>
