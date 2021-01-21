@@ -3,6 +3,7 @@
          xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee
          http://xmlns.jcp.org/xml/ns/javaee/web-app_3_1.xsd"
          version="3.1">
+
     <servlet>
         <servlet-name>index</servlet-name>
         <servlet-class>taxi.controller.IndexController</servlet-class>
@@ -10,6 +11,56 @@
 
     <servlet-mapping>
         <servlet-name>index</servlet-name>
-        <url-pattern>/index</url-pattern>
+        <url-pattern>/</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>registrationDriver</servlet-name>
+        <servlet-class>taxi.controller.driver.CreateDriverController</servlet-class>
+    </servlet>
+
+    <servlet-mapping>
+        <servlet-name>registrationDriver</servlet-name>
+        <url-pattern>/drivers/add</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>registrationManufacturer</servlet-name>
+        <servlet-class>taxi.controller.manufacturer.CreateManufacturerController</servlet-class>
+    </servlet>
+
+    <servlet-mapping>
+        <servlet-name>registrationManufacturer</servlet-name>
+        <url-pattern>/manufacturer/add</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>registrationCar</servlet-name>
+        <servlet-class>taxi.controller.car.CreateCarController</servlet-class>
+    </servlet>
+
+    <servlet-mapping>
+        <servlet-name>registrationCar</servlet-name>
+        <url-pattern>/car/add</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>addDriverForCar</servlet-name>
+        <servlet-class>taxi.controller.car.AddDriverForCarController</servlet-class>
+    </servlet>
+
+    <servlet-mapping>
+        <servlet-name>addDriverForCar</servlet-name>
+        <url-pattern>/car/driver/add</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>displayAllDrivers</servlet-name>
+        <servlet-class>taxi.controller.driver.DisplayAllDriversController</servlet-class>
+    </servlet>
+
+    <servlet-mapping>
+        <servlet-name>displayAllDrivers</servlet-name>
+        <url-pattern>/drivers</url-pattern>
     </servlet-mapping>
 </web-app>
