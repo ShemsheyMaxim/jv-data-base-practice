@@ -5,10 +5,9 @@
 </head>
 <body>
     <h1>Please enter more details about driver</h1>
-    <h2 style="color:darkred">${message}</h2>
     <form method="post" action="${pageContext.request.contextPath}/driver/registration">
-        Your name: <input type="text" name="name_driver">
-        Your licence number: <input type="text" name="licence_number">
+        Your name: <input type="text" name="name_driver" required>
+        Your licence number: <input type="text" name="licence_number" required>
         <button type="submit">Register</button>
     </form>
 </body>

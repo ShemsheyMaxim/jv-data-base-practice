@@ -23,15 +23,10 @@ public class CreateManufacturerController extends HttpServlet {
             throws ServletException, IOException {
         String name = req.getParameter("manufacturer_name");
         String country = req.getParameter("country");
-        if (!name.equals("") && !country.equals("")) {
-            Manufacturer newManufacturer = new Manufacturer(name, country);
-            ManufacturerService manufacturerService = (ManufacturerService)
-                    injector.getInstance(ManufacturerService.class);
-            manufacturerService.create(newManufacturer);
-            resp.sendRedirect(req.getContextPath() + "/");
-        } else {
-            req.setAttribute("message", "Manufacturer name and country can't be empty.");
-            req.getRequestDispatcher("/WEB-INF/views/manufacturer/registration.jsp").forward(req, resp);
-        }
+        Manufacturer newManufacturer = new Manufacturer(name, country);
+        ManufacturerService manufacturerService = (ManufacturerService)
+                injector.getInstance(ManufacturerService.class);
+        manufacturerService.create(newManufacturer);
+        resp.sendRedirect(req.getContextPath() + "/");
     }
 }

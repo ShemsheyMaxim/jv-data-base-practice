@@ -25,17 +25,12 @@ public class CreateCarController extends HttpServlet {
             throws ServletException, IOException {
         String model = req.getParameter("model");
         String manufacturerId = req.getParameter("manufacturer_id");
-        if (!model.equals("") && !manufacturerId.equals("")) {
-            ManufacturerService manufacturerService = (ManufacturerService) injector.getInstance(ManufacturerService.class);
-            Manufacturer newManufacturer = manufacturerService.get(Long.valueOf(manufacturerId));
-            Car newCar = new Car(model, newManufacturer);
-            CarService carService = (CarService) injector.getInstance(CarService.class);
-            carService.create(newCar);
-            resp.sendRedirect(req.getContextPath() + "/");
-        } else {
-            req.setAttribute("message", "Car model, manufacturer name "
-                    + "and manufacturer country can't be empty.");
-            req.getRequestDispatcher("/WEB-INF/views/car/registration.jsp").forward(req, resp);
-        }
+
+        ManufacturerService manufacturerService = (ManufacturerService) injector.getInstance(ManufacturerService.class);
+        Manufacturer newManufacturer = manufacturerService.get(Long.valueOf(manufacturerId));
+        Car newCar = new Car(model, newManufacturer);
+        CarService carService = (CarService) injector.getInstance(CarService.class);
+        carService.create(newCar);
+        resp.sendRedirect(req.getContextPath() + "/");
     }
 }
