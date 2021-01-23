@@ -5,31 +5,33 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import taxi.exception.AuthenticationException;
 import taxi.lib.Injector;
 import taxi.model.Driver;
-import taxi.service.DriverService;
+import taxi.security.AuthenticationService;
 
-public class CreateDriverController extends HttpServlet {
+public class LoginDriverController extends HttpServlet {
     private static final Injector injector = Injector.getInstance("taxi");
-    private final DriverService driverService =
-            (DriverService) injector.getInstance(DriverService.class);
-
+    private final AuthenticationService authenticationService =
+            (AuthenticationService) injector.getInstance(AuthenticationService.class);
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp)
             throws ServletException, IOException {
-        req.getRequestDispatcher("/WEB-INF/views/driver/registration.jsp").forward(req, resp);
+        req.getRequestDispatcher("/WEB-INF/views/driver/login.jsp").forward(req,resp);
     }
 
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp)
             throws ServletException, IOException {
-        String name = req.getParameter("name_driver");
-        String licenceNumber = req.getParameter("licence_number");
         String login = req.getParameter("login");
         String password = req.getParameter("password");
 
-        Driver newDriver = new Driver(name, licenceNumber, login,password);
-        driverService.create(newDriver);
+        try {
+            Driver driver = authenticationService.login(login,password);
+        } catch (AuthenticationException e) {
+            req.setAttribute("errorMsg", e.getMessage());
+            req.getRequestDispatcher("/WEB-INF/views/driver/login.jsp").forward(req,resp);
+        }
         resp.sendRedirect(req.getContextPath() + "/");
     }
 }
