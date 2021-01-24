@@ -25,21 +25,6 @@ CREATE TABLE `cars` (
                         KEY `cars_manufacturers_id_idx` (`manufacturer_id`),
                         CONSTRAINT `cars_manufacturers_id` FOREIGN KEY (`manufacturer_id`) REFERENCES `manufacturers` (`manufacturer_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
-# CREATE TABLE `taxi`.`cars_drivers` (
-#                                        `car_id` BIGINT(11) NOT NULL,
-#                                        `driver_id` BIGINT(11) NOT NULL,
-#                                        INDEX `car_id_idx` (`car_id` ASC) VISIBLE,
-#                                        INDEX `driver_id_idx` (`driver_id` ASC) VISIBLE,
-#                                        CONSTRAINT `car_id`
-#                                            FOREIGN KEY (`car_id`)
-#                                                REFERENCES `taxi`.`cars` (`cars_id`)
-#                                                ON DELETE NO ACTION
-#                                                ON UPDATE NO ACTION,
-#                                        CONSTRAINT `driver_id`
-#                                            FOREIGN KEY (`driver_id`)
-#                                                REFERENCES `taxi`.`drivers` (`driver_id`)
-#                                                ON DELETE NO ACTION
-#                                                ON UPDATE NO ACTION);
 CREATE TABLE `cars_drivers` (
                                 `car_id` bigint NOT NULL,
                                 `driver_id` bigint NOT NULL,
