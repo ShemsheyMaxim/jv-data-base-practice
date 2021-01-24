@@ -73,4 +73,24 @@
         <servlet-name>loginDriver</servlet-name>
         <url-pattern>/login</url-pattern>
     </servlet-mapping>
+
+    <servlet>
+        <servlet-name>displayAllCars</servlet-name>
+        <servlet-class>taxi.controller.car.DisplayAllCarsController</servlet-class>
+    </servlet>
+
+    <servlet-mapping>
+        <servlet-name>displayAllCars</servlet-name>
+        <url-pattern>/cars</url-pattern>
+    </servlet-mapping>
+
+    <filter>
+        <filter-name>authenticationFilter</filter-name>
+        <filter-class>taxi.web.filters.AuthenticationFilter</filter-class>
+    </filter>
+
+    <filter-mapping>
+        <filter-name>authenticationFilter</filter-name>
+        <url-pattern>/*</url-pattern>
+    </filter-mapping>
 </web-app>

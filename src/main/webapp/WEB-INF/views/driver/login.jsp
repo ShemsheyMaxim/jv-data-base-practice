@@ -8,8 +8,9 @@
 <h2 style="color: darkred">${errorMsg}</h2>
 <form method="post" action="${pageContext.request.contextPath}/login">
     Enter login <input type="text" name="login" required>
-    Enter login <input type="password" name="password" required>
+    Enter password <input type="password" name="password" required>
     <button type="submit">Login</button>
 </form>
+<a href="${pageContext.request.contextPath}/drivers/add">registration</a>
 </body>
 </html>
