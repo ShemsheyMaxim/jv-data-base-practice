@@ -8,7 +8,7 @@ In this project used N-tier architecture with DB layer,
 DAO layer, Service layer, Controllers layer. Project was 
 developed according to SOLID principles with authorization
 
-###Project structure
+### Project structure 
 
 _No role:_
 
@@ -23,7 +23,7 @@ Admin:
 - Add the manufacturer for the car
 - Add a driver for car
 
-###Technologies stack:
+### Technologies stack:
 
 - Java Core 
 - JDBC
@@ -33,7 +33,7 @@ Admin:
 - MySQL
 - HQL
 
-###Running the Project
+### Running the Project
 
 1. Download and install the [JDK]( https://www.oracle.com/ru/java/technologies/javase-downloads.html).
 2. Download and install servlet container ([Apache Tomcat](http://tomcat.apache.org/index.html)).
