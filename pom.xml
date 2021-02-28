@@ -5,7 +5,7 @@
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>shemshey-maxim-git</groupId>
-    <artifactId>jv-data-base-practice</artifactId>
+    <artifactId>jv-taxi-service</artifactId>
     <version>1.0-SNAPSHOT</version>
     <packaging>war</packaging>
 
