@@ -1,4 +1,4 @@
-# jv-taxi-service 
+# Taxi-service 
 
 A prototype of a taxi service application for drivers and employee
 with basic functionality for users written 
